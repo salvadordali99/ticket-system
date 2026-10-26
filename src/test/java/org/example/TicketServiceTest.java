@@ -61,4 +61,21 @@ public class TicketServiceTest {
         assertTrue(ticket.isCancelled());
         assertEquals(5, event.getAvailableSeats());
     }
+
+    @Test
+    void shouldNotCancelTicketTwice() {
+        Event event = new Event(1, "Concert", 5);
+        Customer customer = new Customer(1, "Dmitriy");
+
+        Ticket ticket = ticketService.buyTicket(1, event, customer);
+
+        ticketService.cancelTicket(ticket.getId());
+
+        assertThrows(
+                IllegalStateException.class,
+                () -> ticketService.cancelTicket(ticket.getId())
+        );
+
+        assertEquals(5, event.getAvailableSeats());
+    }
 }
