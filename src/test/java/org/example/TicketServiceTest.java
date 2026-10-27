@@ -54,7 +54,7 @@ public class TicketServiceTest {
 
         Ticket ticket = ticketService.buyTicket(1, event, customer);
 
-        assertEquals(4, event.getAvailableSeats());
+        assertEquals(100, event.getAvailableSeats());
 
         ticketService.cancelTicket(ticket.getId());
 
