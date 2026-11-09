@@ -34,6 +34,6 @@ public class Event {
         availableSeats--;
     }
 
-    public void BadMethod() {
-    }
+//    public void BadMethod() {
+//    }
 }
