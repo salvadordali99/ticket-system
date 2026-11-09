@@ -1,0 +1,8 @@
+2026-11-09 12:01:15 INFO  org.example.service.TicketService - Ticket 1 purchased for event 1
+2026-11-09 12:15:58 INFO  org.example.service.TicketService - Ticket 1 purchased for event 1
+2026-11-09 12:15:58 WARN  org.example.service.TicketService - No available seats for event 2
+2026-11-09 12:15:58 ERROR org.example.service.TicketService - Ticket 999 not found
+2026-11-09 12:18:17 INFO  org.example.service.TicketService - Ticket 1 purchased for event 1
+2026-11-09 12:18:17 INFO  org.example.service.TicketService - Ticket 1 purchased for event 1
+2026-11-09 12:18:17 WARN  org.example.service.TicketService - No available seats for event 1
+2026-11-09 12:18:17 INFO  org.example.service.TicketService - Ticket 1 purchased for event 1

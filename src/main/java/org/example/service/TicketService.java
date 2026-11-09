@@ -4,8 +4,12 @@ import org.example.model.Customer;
 import org.example.model.Event;
 import org.example.model.Ticket;
 import org.example.repository.TicketRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TicketService {
+    private static final Logger logger =
+            LoggerFactory.getLogger(TicketService.class);
     private final TicketRepository repository;
 
     public TicketService(TicketRepository repository) {
@@ -14,6 +18,7 @@ public class TicketService {
 
     public Ticket buyTicket(int ticketId, Event event, Customer customer) {
         if (event.getAvailableSeats() <= 0) {
+            logger.warn("No available seats for event {}", event.getId());
             throw new IllegalStateException("No available seats");
         }
 
@@ -21,6 +26,8 @@ public class TicketService {
         Ticket ticket = new Ticket(ticketId, event, customer);
 
         repository.save(ticket);
+        logger.info("Ticket {} purchased for event {}",
+                ticket.getId(), event.getId());
         return ticket;
 
     }
@@ -29,6 +36,7 @@ public class TicketService {
         Ticket ticket = repository.findById(ticketId);
 
         if (ticket == null) {
+            logger.error("Ticket {} not found", ticketId);
             throw new IllegalArgumentException("No ticket found");
         }
         ticket.cancel();

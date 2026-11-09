@@ -22,5 +22,22 @@ public class Main {
         System.out.println("after refund: " + event.getAvailableSeats());
 
 
+
+
+
+//        Event soldOut = new Event(2, "Full concert", 0);
+//
+//        try {
+//            ticketService.buyTicket(2, soldOut, customer);
+//        } catch (IllegalStateException e) {
+//            System.out.println("Purchase failed: " + e.getMessage());
+//        }
+//
+//        try {
+//            ticketService.cancelTicket(999);
+//        } catch (IllegalArgumentException e) {
+//            System.out.println("Cancellation failed: " + e.getMessage());
+//        }
+
     }
 }
